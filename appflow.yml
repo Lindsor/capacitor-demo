@@ -1,0 +1,15 @@
+vars:
+  CI_BUILD_NUMBER:
+    default: 1000
+  APPLICATION_NAME:
+    default: Foo Bank
+
+platforms:
+  android:
+    versionName: 0.0.1
+    versionCode: $CI_BUILD_NUMBER
+    appName: $APPLICATION_NAME
+  ios:
+    version: 0.0.1
+    buildNumber: $CI_BUILD_NUMBER
+    displayName: $APPLICATION_NAME
