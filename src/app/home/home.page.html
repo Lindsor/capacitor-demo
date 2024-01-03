@@ -12,14 +12,24 @@
   </ion-header>
 
   <div id="container">
-    <p>
-      Start with Foo Bank
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components"
-        >UI Components</a
-      >
-    </p>
+    <h3 class="error" *ngIf="error" [innerHTML]="error"></h3>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <ion-item
+        ><ion-input
+          formControlName="username"
+          label="Username:"
+          type="text"
+        ></ion-input
+      ></ion-item>
+      <ion-item
+        ><ion-input
+          formControlName="password"
+          label="Password:"
+          type="password"
+        ></ion-input
+      ></ion-item>
+
+      <ion-button type="submit">Login</ion-button>
+    </form>
   </div>
 </ion-content>
