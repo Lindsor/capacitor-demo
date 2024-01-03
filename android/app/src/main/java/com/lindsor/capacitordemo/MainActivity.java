@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.lindsor.capacitordemo;
 
 import com.getcapacitor.BridgeActivity;
 

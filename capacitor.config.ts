@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'com.lindsor.capacitordemo',
   appName: 'capacitor-demo',
   webDir: 'www',
   server: {
