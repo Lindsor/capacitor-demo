@@ -5,8 +5,8 @@ const config: CapacitorConfig = {
   appName: 'capacitor-demo',
   webDir: 'www',
   server: {
-    androidScheme: 'https'
-  }
+    androidScheme: 'https',
+  },
 };
 
 export default config;
