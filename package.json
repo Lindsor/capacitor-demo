@@ -1,6 +1,6 @@
 {
   "name": "capacitor-demo",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
@@ -8,7 +8,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --configuration=production",
-    "appflow:build": "export CI_BUILD_NUMBER=$(($CI_BUILD_NUMBER + 1000)) && if [ \"$CI_PLATFORM\" != \"web\" ]; then npx trapeze run appflow.yml -y --$CI_PLATFORM; fi && npm run build:prod",
+    "appflow:build": "export CI_BUILD_NUMBER=$(($CI_BUILD_NUMBER + 1000)) && if [ \"$CI_PLATFORM\" != \"web\" ]; then npx trapeze run appflow.yml -y --$CI_PLATFORM; fi && npm run build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
