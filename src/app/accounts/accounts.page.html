@@ -77,7 +77,6 @@
           }
         </ion-item>
         <ion-button
-          [disabled]="!fromAccountId.value || !amountToTransfer.value || ($any(amountToTransfer.value) > accountService.getAccountById(fromAccountId.value).balance)"
           [strong]="true"
           expand="block"
           (click)="transferTo(fromAccountId.value, account.id, $any(amountToTransfer.value), $any(modal))"
