@@ -12,7 +12,7 @@ const config: CapacitorConfig = {
     LiveUpdates: {
       appId: '948760ef',
       channel: 'Demo',
-      autoUpdateMethod: 'background',
+      autoUpdateMethod: 'none',
       // Number of retroactive cached versions to rollback
       maxVersions: 2,
     },

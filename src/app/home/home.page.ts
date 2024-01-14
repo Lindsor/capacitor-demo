@@ -38,7 +38,7 @@ export class HomePage {
     this.error = null;
 
     if (
-      this.form.get('username')?.value !== 'batman' ||
+      this.form.get('username')?.value?.toLowerCase() !== 'batman' ||
       this.form.get('password')?.value !== 'Test!234'
     ) {
       this.error = 'The credentials are invalid';
