@@ -4,7 +4,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SyncResult, reload, sync } from '@capacitor/live-updates';
 import { AlertController, IonicModule } from '@ionic/angular';
-import { AccountsService } from './accounts.service';
+import {
+  ACCOUNT_TYPE_ORDER,
+  Account,
+  AccountType,
+  AccountsService,
+  COLORS,
+} from './accounts.service';
 
 @Component({
   selector: 'app-accounts',
@@ -46,6 +52,21 @@ export class AccountsPage implements OnInit {
           return alert.present();
         });
     });
+  }
+
+  getAccountGroups(): Array<Account[]> {
+    const allAccounts: Account[] = this.accountService.getAccounts();
+    return ACCOUNT_TYPE_ORDER.map((accountType: AccountType) => {
+      return allAccounts.filter(
+        (account: Account) => account.type === accountType,
+      );
+    });
+  }
+
+  getAccountGroupColor(accountType: AccountType): string {
+    return (
+      COLORS.get(accountType) || (COLORS.get(AccountType.CHECKING) as string)
+    );
   }
 
   transferTo(

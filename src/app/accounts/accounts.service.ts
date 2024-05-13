@@ -6,13 +6,13 @@ export enum AccountType {
   HELOC = 'HELOC',
 }
 
-const COLORS: Map<AccountType, string> = new Map([
-  [AccountType.CHECKING, '--ion-color-primary'],
-  [AccountType.SAVINGS, '--ion-color-secondary'],
-  [AccountType.HELOC, '--ion-color-tertiary'],
+export const COLORS: Map<AccountType, string> = new Map([
+  [AccountType.CHECKING, '--ion-color-secondary'],
+  [AccountType.SAVINGS, '--ion-color-success'],
+  [AccountType.HELOC, '--ion-color-warning'],
 ]);
 
-const ACCOUNT_TYPE_ORDER: AccountType[] = [
+export const ACCOUNT_TYPE_ORDER: AccountType[] = [
   AccountType.CHECKING,
   AccountType.SAVINGS,
   AccountType.HELOC,
