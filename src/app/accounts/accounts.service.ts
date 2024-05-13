@@ -3,7 +3,20 @@ import { Injectable } from '@angular/core';
 export enum AccountType {
   CHECKING = 'CHECKING',
   SAVINGS = 'SAVINGS',
+  HELOC = 'HELOC',
 }
+
+const COLORS: Map<AccountType, string> = new Map([
+  [AccountType.CHECKING, '--ion-color-primary'],
+  [AccountType.SAVINGS, '--ion-color-secondary'],
+  [AccountType.HELOC, '--ion-color-tertiary'],
+]);
+
+const ACCOUNT_TYPE_ORDER: AccountType[] = [
+  AccountType.CHECKING,
+  AccountType.SAVINGS,
+  AccountType.HELOC,
+];
 
 export interface Account {
   id: string;
@@ -21,17 +34,17 @@ const getNextId: () => number = (() => {
 const ACCOUNTS: Account[] = [
   {
     id: `${getNextId()}`,
-    number: '********5439',
-    balance: 100.65,
-    name: 'Everyday Checking',
-    type: AccountType.CHECKING,
-  },
-  {
-    id: `${getNextId()}`,
     number: '********3617',
     balance: 5000.45,
     name: 'Everyday Savings',
     type: AccountType.SAVINGS,
+  },
+  {
+    id: `${getNextId()}`,
+    number: '********5439',
+    balance: 10_065_345.23,
+    name: 'Everyday Checking',
+    type: AccountType.CHECKING,
   },
   {
     id: `${getNextId()}`,
@@ -45,14 +58,14 @@ const ACCOUNTS: Account[] = [
     number: '********7247',
     balance: 783.5,
     name: 'Savings Builder',
-    type: AccountType.CHECKING,
+    type: AccountType.SAVINGS,
   },
   {
     id: `${getNextId()}`,
     number: '********1954',
     balance: 1245.5,
     name: 'Home Equity Line of Credit',
-    type: AccountType.CHECKING,
+    type: AccountType.HELOC,
   },
 ];
 
