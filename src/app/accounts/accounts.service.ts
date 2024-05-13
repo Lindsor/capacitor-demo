@@ -13,26 +13,45 @@ export interface Account {
   type: AccountType;
 }
 
+const getNextId: () => number = (() => {
+  let nextId = 1;
+  return () => nextId++;
+})();
+
 const ACCOUNTS: Account[] = [
   {
-    id: Math.random().toString().slice(2),
+    id: `${getNextId()}`,
     number: '********5439',
     balance: 100.65,
     name: 'Everyday Checking',
     type: AccountType.CHECKING,
   },
   {
-    id: Math.random().toString().slice(2),
+    id: `${getNextId()}`,
     number: '********3617',
     balance: 5000.45,
     name: 'Everyday Savings',
     type: AccountType.SAVINGS,
   },
   {
-    id: Math.random().toString().slice(2),
+    id: `${getNextId()}`,
     number: '********9401',
-    balance: 400.5,
+    balance: 4006.5,
     name: 'Personal Checking',
+    type: AccountType.CHECKING,
+  },
+  {
+    id: `${getNextId()}`,
+    number: '********7247',
+    balance: 783.5,
+    name: 'Savings Builder',
+    type: AccountType.CHECKING,
+  },
+  {
+    id: `${getNextId()}`,
+    number: '********1954',
+    balance: 1245.5,
+    name: 'Home Equity Line of Credit',
     type: AccountType.CHECKING,
   },
 ];

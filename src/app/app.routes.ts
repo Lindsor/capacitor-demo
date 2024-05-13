@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { TabsPage } from './tabs/tabs.page';
 
 export const routes: Routes = [
   {
@@ -12,7 +13,18 @@ export const routes: Routes = [
   },
   {
     path: 'accounts',
-    loadComponent: () =>
-      import('./accounts/accounts.page').then((m) => m.AccountsPage),
+    component: TabsPage,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'home',
+      },
+      {
+        path: 'home',
+        loadComponent: () =>
+          import('./accounts/accounts.page').then((m) => m.AccountsPage),
+      },
+    ],
   },
 ];

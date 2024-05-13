@@ -24,23 +24,6 @@
   [fullscreen]="true"
   style="--ion-background-color: var(--ion-color-light)"
 >
-  <ion-tabs style="--ion-background-color: #fff">
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
-        <ion-icon name="home" color="primary"></ion-icon>
-        Home
-      </ion-tab-button>
-      <ion-tab-button tab="radio">
-        <ion-icon name="wallet-outline"></ion-icon>
-        Pay &amp; Transfer
-      </ion-tab-button>
-      <ion-tab-button tab="library">
-        <ion-icon name="menu"></ion-icon>
-        More
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-
   <div
     style="
       background: url(assets/background.svg);
@@ -124,7 +107,7 @@
       <div style="text-align: right">
         <div>Available balance</div>
         <div style="color: var(--ion-color-primary); font-size: 2em">
-          ${{ account.balance.toFixed(2) }}
+          {{ account.balance | currency: 'USD' }}
         </div>
       </div>
     </ion-card-content>
