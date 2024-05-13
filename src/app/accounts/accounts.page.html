@@ -1,43 +1,128 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Accounts</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <ion-button>
+        <ion-img
+          slot="start"
+          src="assets/bmo_logo.svg"
+          style="height: 2em; padding-left: 1em"
+        ></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="secondary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="chatbubbles-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" name="mail-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Accounts</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content
+  [fullscreen]="true"
+  style="--ion-background-color: var(--ion-color-light)"
+>
+  <ion-tabs style="--ion-background-color: #fff">
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home">
+        <ion-icon name="home" color="primary"></ion-icon>
+        Home
+      </ion-tab-button>
+      <ion-tab-button tab="radio">
+        <ion-icon name="wallet-outline"></ion-icon>
+        Pay &amp; Transfer
+      </ion-tab-button>
+      <ion-tab-button tab="library">
+        <ion-icon name="menu"></ion-icon>
+        More
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+  <div
+    style="
+      background: url(assets/background.svg);
+      height: 14em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 2em;
+    "
+  >
+    <h2
+      style="
+        margin: 0;
+        font-weight: normal;
+        color: var(--ion-color-light);
+        padding-left: 1rem;
+      "
+    >
+      Good morning, <br /><strong>Super Rich LLC</strong>
+    </h2>
+    <div
+      style="
+        color: var(--ion-color-light);
+        padding-left: 1rem;
+        padding-top: 1em;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <ion-icon name="calendar"></ion-icon>
+      <div style="padding-left: 0.5em">Today is Monday, May 13, 2024</div>
+    </div>
+  </div>
 
   @for (account of accountService.getAccounts(); track account.id) {
-  <ion-card>
+  <ion-card
+    [id]="'modal-account-' + account.id"
+    style="cursor: pointer; margin-bottom: 2%; --ion-background-color: #fff"
+  >
     <ion-card-header>
-      <ion-card-title style="color: var(--ion-color-primary)"
-        >{{ account.name }}</ion-card-title
-      >
-      <ion-card-subtitle>{{ account.number }}</ion-card-subtitle>
+      <ion-card-title>{{ account.name }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content
       style="
-        text-align: right;
-        font-size: 2em;
-        color: var(--ion-color-secondary);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
       "
-      >${{ account.balance.toFixed(2) }}
-    </ion-card-content>
-    <ion-card-content style="text-align: right">
-      <ion-button style="text-align: right" [id]="'modal-account-' + account.id"
-        >Transfer To</ion-button
+    >
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          flex: 1;
+          flex-direction: column;
+        "
       >
+        <div
+          style="
+            height: 0.5em;
+            background: var(--ion-color-secondary);
+            border-radius: 0.5em;
+            width: 30%;
+            margin-bottom: 2em;
+          "
+        ></div>
+        <div>{{ account.number }}</div>
+      </div>
+
+      <div style="text-align: right">
+        <div>Available balance</div>
+        <div style="color: var(--ion-color-primary); font-size: 2em">
+          ${{ account.balance.toFixed(2) }}
+        </div>
+      </div>
     </ion-card-content>
   </ion-card>
   <ion-modal #modal [trigger]="'modal-account-' + account.id">
     <ng-template>
       <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="primary">
           <ion-buttons slot="start">
             <ion-button (click)="modal.dismiss()">Cancel</ion-button>
           </ion-buttons>

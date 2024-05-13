@@ -2,7 +2,7 @@ vars:
   CI_BUILD_NUMBER:
     default: 1000
   APPLICATION_NAME:
-    default: Foo Bank
+    default: BDB
 
 platforms:
   android:

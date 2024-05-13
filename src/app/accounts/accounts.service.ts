@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
 
+export enum AccountType {
+  CHECKING = 'CHECKING',
+  SAVINGS = 'SAVINGS',
+}
+
 export interface Account {
   id: string;
   number: string;
   balance: number;
   name: string;
+  type: AccountType;
 }
 
 const ACCOUNTS: Account[] = [
@@ -13,18 +19,21 @@ const ACCOUNTS: Account[] = [
     number: '********5439',
     balance: 100.65,
     name: 'Everyday Checking',
+    type: AccountType.CHECKING,
   },
   {
     id: Math.random().toString().slice(2),
     number: '********3617',
     balance: 5000.45,
     name: 'Everyday Savings',
+    type: AccountType.SAVINGS,
   },
   {
     id: Math.random().toString().slice(2),
     number: '********9401',
     balance: 400.5,
     name: 'Personal Checking',
+    type: AccountType.CHECKING,
   },
 ];
 

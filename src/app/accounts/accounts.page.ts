@@ -1,10 +1,10 @@
-import { AccountsService } from './accounts.service';
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { IonicModule, AlertController } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
-import { sync, reload, SyncResult } from '@capacitor/live-updates';
+import { SyncResult, reload, sync } from '@capacitor/live-updates';
+import { AlertController, IonicModule } from '@ionic/angular';
+import { AccountsService } from './accounts.service';
 
 @Component({
   selector: 'app-accounts',
