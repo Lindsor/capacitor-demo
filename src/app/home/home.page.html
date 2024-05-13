@@ -13,32 +13,31 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div
-    style="
-      background: url(assets/background.svg);
-      height: 14em;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-bottom: 2em;
-    "
-  >
-    <h2
+  <div>
+    <div
       style="
-        margin: 0;
-        font-weight: 200;
-        color: var(--ion-color-light);
-        padding-left: 1rem;
+        background: url(assets/background.svg);
+        height: 14em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 2em;
       "
     >
-      Discover the benefits of<br />
-      banking <strong>online.</strong>
-    </h2>
-  </div>
-
-  <div id="container">
+      <h2
+        style="
+          margin: 0;
+          font-weight: 200;
+          color: var(--ion-color-light);
+          padding-left: 1rem;
+        "
+      >
+        Discover the benefits of<br />
+        banking <strong>online.</strong>
+      </h2>
+    </div>
     <h3 class="error" *ngIf="error" [innerHTML]="error"></h3>
-    <form [formGroup]="form" (ngSubmit)="submit()">
+    <form [formGroup]="form" (ngSubmit)="submit()" style="text-align: center;">
       <ion-item
         ><ion-input
           color="primary"
