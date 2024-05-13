@@ -54,7 +54,7 @@
     <h2
       style="
         margin: 0;
-        font-weight: normal;
+        font-weight: 200;
         color: var(--ion-color-light);
         padding-left: 1rem;
       "
@@ -75,10 +75,20 @@
     </div>
   </div>
 
+  <div style="cursor: pointer">
+    <ion-note
+      color="primary"
+      style="margin-left: 1em; display: flex; align-items: center"
+    >
+      <ion-icon name="chevron-down" style="margin-right: 0.5em"></ion-icon>
+      <strong>Deposits</strong>
+    </ion-note>
+  </div>
+
   @for (account of accountService.getAccounts(); track account.id) {
   <ion-card
     [id]="'modal-account-' + account.id"
-    style="cursor: pointer; margin-bottom: 2%; --ion-background-color: #fff"
+    style="cursor: pointer; margin-bottom: 1em; --ion-background-color: #fff"
   >
     <ion-card-header>
       <ion-card-title>{{ account.name }}</ion-card-title>

@@ -1,6 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons>
+      <ion-button>
+        <ion-img
+          slot="start"
+          src="assets/bmo_logo.svg"
+          style="height: 2em; padding-left: 1em"
+        ></ion-img>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -11,25 +19,68 @@
     </ion-toolbar>
   </ion-header>
 
+  <div
+    style="
+      background: url(assets/background.svg);
+      height: 14em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 2em;
+    "
+  >
+    <h2
+      style="
+        margin: 0;
+        font-weight: 200;
+        color: var(--ion-color-light);
+        padding-left: 1rem;
+      "
+    >
+      Discover the benefits of<br />
+      banking <strong>online.</strong>
+    </h2>
+  </div>
+
   <div id="container">
     <h3 class="error" *ngIf="error" [innerHTML]="error"></h3>
     <form [formGroup]="form" (ngSubmit)="submit()">
       <ion-item
         ><ion-input
+          color="primary"
           formControlName="username"
           label="Username:"
+          labelPlacement="floating"
           type="text"
-        ></ion-input
-      ></ion-item>
+        ></ion-input>
+        <div slot="helper" style="margin-left: auto; margin-top: 0.5em">
+          <a href="#">FORGOT USER ID?</a>
+        </div></ion-item
+      >
+
       <ion-item
         ><ion-input
           formControlName="password"
           label="Password:"
+          labelPlacement="floating"
           type="password"
-        ></ion-input
-      ></ion-item>
+        ></ion-input>
+        <div slot="helper" style="margin-left: auto; margin-top: 0.5em">
+          <a href="#">FORGOT PASSWORD?</a>
+        </div></ion-item
+      >
 
-      <ion-button type="submit">Login</ion-button>
+      <ion-button
+        style="
+          width: 15em;
+          margin-top: 2em;
+          --padding-top: 1em;
+          --padding-bottom: 1em;
+          --border-radius: 2em;
+        "
+        type="submit"
+        >SIGN IN</ion-button
+      >
     </form>
   </div>
 </ion-content>
